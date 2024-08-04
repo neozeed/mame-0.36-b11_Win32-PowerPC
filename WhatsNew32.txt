@@ -1,0 +1,553 @@
+Whats new:
+----------
+0.36 BETA 11
+------------
+- Enabled x86 68k emulator.
+
+- Removed custom rom audit routines and used core versions.
+
+- Better manufacturer folder matching routine.
+
+0.36 BETA 10
+------------
+- Updated sample code to handle the new sample structures.
+
+- Cleaned up the display of the Manufacturer folders. It now will add the
+  games the company Licensed from someone else in both folders.
+
+- Added auto depth to the UI.
+
+- Modified the folder and filter mechanism to not explicitly display
+  list of missing roms.
+
+0.36 BETA 8
+-----------
+- Added support for reading zipped inp files.
+
+- Change the joystick code so that the mouse buttons are no longer
+  aliases for joystick buttons.
+
+0.36 BETA 7
+-----------
+- Updated for Beta 7.
+
+0.36 BETA 6
+-----------
+- Added 16 bit sample support for the DirectSound option.
+
+- Joystick names in config now based on the joystick type, not instance.
+
+0.36 BETA 5
+-----------
+- New support for any number of POVs using DirectInput.
+
+- Added diagonal positions for POV.
+
+- When -quit is specified, the number of plays for the game being
+  launched will be incremented. However, Mame32 will no longer save
+  the registry information or command line options for the session.
+
+0.36 BETA 4
+-----------
+- Improved version detection of the required common control dll.
+
+- Added the Minimize/Maximize code submitted by Ben Jos Walbeehm.
+
+- Removed joystick config from UI. Non-analog joystick configuration
+  functionality is now in the MAME set up screens.
+
+- Joystick code now uses additional axes such as rudder, sliders, POV.
+
+- Added support for multiple OPL chips (aka FM synthesis). 
+  On NT you must remove and then install the device driver, mameopl.sys
+  version 1.02, with instopl.bat. This device driver should be
+  backwards compatible with earlier versions of MAME32 that only
+  use one chip. However, newer versions of MAME32 will not work
+  with older versions of mameopl.sys.
+
+- Removed profile option from the UI. Profiling is now enabled 
+  with Shift+F11. The profile code now uses the RDTSC instruction
+  only available on pentium class CPUs.
+
+- Changed the game names starting with 'The' in the UI list to be
+  re-ordered so games that have 'The' in front of their names are
+  alphabetized w/ the 'The' trailing.
+
+- Updated DirectSound code. It should sound better than before.
+
+- Y2K certified.
+
+0.35
+----
+
+- Screenshots now saved in PNG format.
+
+- Removed support for JPEG image loading. The MAME32 UI can load images
+  in BMP or PNG format.
+
+- Clicking on the screen shot is a 3 state toggle, screen shot to flyer to cabinet pics.
+  Flyer images can be in the flyers directory (default 'flyers') or in a zip file 
+  named flyers.zip in the flyer directory. Cabinet images can be in the cabinet directory
+  (default 'cabinets') or in a zip file named cabinets.zip in the cabinets directory.
+
+- Flyer/screen shot/cabinet mode now persist.
+
+- Game Options and Default options are now saved when closing the Property sheets.
+
+- Added support for flyer artwork. Flyers are stored in flyers.zip in the images
+  directory. Screen shots remain the same.
+
+- Added a history window which appears under the screen shot for games which
+  have history information available.
+
+- Added Alt-A keyboard accelerator which opens up the properties dialog straight
+  to the audit page.
+
+- MAME32 will now only load icons as needed. The icons will be flushed when
+  F5 is hit and reloaded, again only when needed for display.
+
+- Added check box controls to turn on/off artwork or sample loading.
+
+- Added slider control for setting volume attenuation.
+
+- Added option to save MAME32 game session as an AVI file.
+  Select "Capture As AVI file" from the File menu and then start
+  or stop capturing using then F12 key. From John Zissopoulos.
+
+- Added multiple monitor display support for Windows 98/Windows 2000.
+
+- Added column sort order persistence when starting a new session of MAME32.
+
+- Added Startup Options to the Options menu to customize the startup of MAME32.
+
+- Added new joystick controller options in the Controllers Tab. This allows users
+  to map from physical joysticks (and various axes on those joysticks) to MAME's
+  4 standard joystick inputs.
+
+- Added Game Name, Game Status, number of games in the current folder and MMX
+  detection indicator to the status bar.
+
+- Added a status bar progress control so the user can see progress when the game list
+  is being refreshed or initialized.
+
+- Added Custom -> Played folder to replace the Custom -> Favorites.
+  Added new functionality for the Custom -> Favorites folder.  The user can now add/remove
+  games from this folder by right clicking on the game, and selecting Add to Favorites or
+  Remove from Favorites from the pop-up menu.
+
+- If a folder is empty, the status bar now shows 'No Selection' instead of the old game name.
+
+- Default game options now use the same property pages as the game options property pages.
+
+- Background image for game list now works in all views.
+
+- Changed inp file format to include game, and MAME version information.
+  This allows MAME32 to read the header and determine which game the
+  stream represents and which version of MAME wrote the .inp file.
+
+- Added filters than can be selected from the Folder List or View Menu.
+  These will filter which games are displayed in the Game List.
+
+- Added Reset Options to the Options Menu. These will allow you to reset MAME32
+  to default settings upon the next restart of MAME32.
+
+- Added right-mouse click support for the Folder List to select the filters menu.
+
+- Added right-mouse click support for the Game List to select the filters menu.
+
+- Added progress bar to display how much of the game has loaded while the game is loading.
+
+- Removed the Large Screen Shots menu option.  Removed Alt-R keyboard support for this option.
+
+0.34
+----
+
+- Removed Game options tabs from the main window.
+  (They are now incorporated in Properties)
+
+  NOTE: Stock Win95 clients will to update to
+        the latest common controls or install
+        IE4/5 to use property sheets, the program
+        will alert the user if it finds an outdated
+        control and tell them where to get it.  If
+        they choose to run the program anyway, they
+        are restricted by not being able to:
+
+        1) Access the property pages
+        2) Can not customize the list view columns.
+
+- Added Toolbar with tooltips.
+
+- Added Status bar with menu help and game selection details.
+
+- Folder list (Tree control) to allow different 'Views'
+  of the games in the list.
+
+- Added Splitter controls.
+  (This allows resizing the Folder list, Game list and
+  Screen shot portions of the main display)
+
+- New shortcut keys:
+    F1        brings up help contents
+    Alt-N     toggle screen shot
+    Alt-T     toggle tool bar
+    Alt-S     toggle status bar
+    Alt-D     toggle Folder list
+    Alt-R     large screen shot
+    Alt-P     Still play current game
+    Alt-ENTER brings up Properties for the selected item
+    F5        Still refresh
+
+- Customizable Icon names in Folder List.
+  These can placed in the .\icons directory:
+
+    "foldopen.ico"
+    "folder.ico"
+    "foldavail.ico"
+    "custom.ico"
+    "foldmanu.ico"
+    "foldunav.ico"
+    "foldyear.ico"
+    "manufact.ico"
+    "working.ico"
+    "nonwork.ico"
+    "year.ico"
+    "neo-geo.ico"
+
+- JPEGs can now be used instead of BMPs as background images
+  and as screen shots.
+  NOTE: the default image directory is now called .\images.
+
+  You may put *.jpg or *.bmp files in the image directory
+  and they will be found by Mame32.  You may zip the images
+  into a zipfile inside the image directory and name it 'images.zip'.
+
+  Mame32 will look in the following order to find image files:
+
+  <imagedir>\name.jpg
+  <imagedir>\name.bmp
+  <imagedir>\images.zip\name.jpg
+  <imagedir>\images.zip\name.bmp
+
+  Mame32 will no longer look for bmp.zip in the current
+  directory. It must be renamed to 'images.zip' and moved
+  to the users images directory. 
+
+  (The images directory is still configurable)
+
+- Added stereo sound support option for the games that use it.
+
+- Removed the Neo-Geo BIOS from the 'Clone of" column in the UI.
+
+- The custom pause code has been removed. Pause now works like the dos version. 
+
+- Added Brightness control to the UI.
+
+- Changed some of the textboxes to sliders.
+
+- Added bkground.bmp image to the screen shot area.
+
+- Added experimental profiler. To enable it, check the 'Enable profile' checkbox; then,
+  hit Left Shift + F11 to show the results on screen.
+
+- Added artwork and state file support.
+
+- Modified the usage of the OPL chip driver code to use mameopl.sys as an installed driver
+  on Windows NT. The mameopl.sys driver can now be installed and uninstalled by running
+  instopl.bat with 'install' or 'remove' as command line parameters.
+
+- Added Dan Miller's Windows Help file.
+
+- Added Robert Schlabbach's Windows NT driver for OPL chip access (ym3812 sound).
+  Requires a Sound Blaster compatible sound card. This driver gets loaded
+  dynamically for games that use it, so you must run MAME32 with Administrative
+  privledges.
+
+- Enabled keyboard LED indicators to emulate the 1 player/2 players start lamps.
+  This currently works only in Windows NT.
+
+- Added Audit Tab to Game Property sheet.
+
+- Added Pause/Continue feature to Audit Dialog.
+
+- Added Game Directory under title in Properties popup.
+
+- Widend the audit dialog so that errors don't go over a line.
+
+- Adds preliminary support for average frame rate computation, like the DOS
+  version.  It printf()'s the number at the end, so you need to run -debug to
+  see it.
+
+- Gamelist background image will be refreshed on F5.
+
+- Increased compatibility with older common control dll (comctl32.dll).
+
+- Added property sheet to display game specific information.
+
+- Added 'Update Game List' to the Options menu to allow
+  the user to refresh the ROM/Samples/Icon information.
+  This information is no longer updated every time MAME32 starts.
+
+- Added skip columns option for fullscreen mode.
+
+- Added support for detecting merged ROMS.
+
+- Game list column header is now customizeable. Use the menu option
+  'View->Customize Fields...'. The header items can also be rearranged
+  by drag and drop.
+
+- Added 'Show No Clone Games' to UI menu under Options.
+
+- Added icons the to game list UI to show ROM availability.
+  By putting 4 icons in either the image directory or the current
+  working directory users can modify the icons to suit their own tastes:
+    noroms.ico  <- ROMS not available
+    roms.ico    <- ROMS available
+    unknown.ico <- ROM availability unknown
+    warning.ico <- game not working (a red X)
+  NOTE: These icons cannot be in a zipfile.
+
+- Added support for game specific icons in the game list UI.
+  If the game, or the game it's a clone of, has an icon with the same
+  name in either icons/*.ico or image directory, and the game is available,
+  MAME32 will show the 'custom' icon for that game.
+
+- A tiled background image may be used for the game list UI when viewed as Details.
+  To use a background image, create a bmp called "bkground.bmp", and
+  place it in the image directory.
+  For 256 color display modes, you can also specify a 16 color
+  bitmap as "bkgnd16.bmp".
+
+- Addded capability to display screen shots in the UI. The images must
+  be in the Windows bmp format, located in the image directory.
+  The images can also be in a zip file named bmp.zip, located in the same
+  directory as MAME32.exe.
+
+- Options in the UI are now split into two tabs, Display and Sound/Input.
+
+- New cpu detection code which should work on PIIs.
+
+- Support for recording/playback of .inp files.
+  To record, use the "File->Play and Record Input" menu item. To play,
+  use the "File->Playback Input" menu item.
+
+- Support for the the new dirty layer system in fullscreen mode and
+  in DirectDraw windowed mode.
+
+- Directories and paths are now configurable. This applies to the rom and
+  sample paths, config, high score, image, and input directories.
+
+- Added additional columns in the UI for game manufacturer and year.
+
+- Added Mame/Mame32 help files to the 'Help' menu.
+
+- Added all 4 explorer style view the the Game display.
+
+- Added support for custom font color.
+
+- Context menus when right clicking on the ListView
+  and Column Headers.
+
+- Column Sort indicators.
+
+- Number of Games played are now saved after each game
+  is played, instead of when you exit the program.
+
+- Ability to use system large fonts without distortion.
+
+0.31.1
+------
+- Fixed crash when attempting to detect MMX support on Cyrix CPUs.
+  If a Cyrix CPU is detected, the code will disable support for
+  MMX even if the processor supports MMX instructions 
+
+- Added visible area support in fullscreen and DirectDraw windowed mode.
+  All display options now support this functionality.
+
+- 16 bit support for the DirectSound option. Fixed samples being cut off.
+
+- Added support for up to four joysticks.
+
+- Updated Wingman Warrior support. The previous version of MAME32 only worked
+  with Logitech's oldest 1.0 driver; this new version only works with
+  their latest 2.3 driver. To use the Wingman Warrior spinner you need
+  their version 2.3 driver, from http://www.logitech.com. And you must select
+  the "Use DirectInput for joystick" option.
+
+- Added an audit feature. This checks all your existing ROM sets for missing
+  and incorrect ROMs, and for missing samples. From the File menu, choose Audit.
+
+- Added YM3812 FM synthesis for Sound Blaster compatibles under Windows 95.
+  This will not work on Windows NT and may not work with PCI sound cards.
+
+0.31
+----
+- Added an Unavailable Games option to the View menu.
+
+- Unzip support is now done by the core mame code.
+  The unzip.dll file is no longer needed.
+
+- 16-bit color support in fullscreen and GDI windowed mode.
+  16-bit color in DirectDraw windowed mode requires the display
+  to be set to 16 bit.
+
+- Added yet another sound option, DirectSound. This uses the DirectX
+  DirectSound API. It currently does not support 16 bit samples.
+
+- Option to use a Blit operation for fullscreen mode. This applies to
+  the double option with no scanlines. This may or may not result in a
+  speed increase. It's actually slower on my machine. YMMV.
+
+- Support for processors with MMX instructions. I (Michael) haven't
+  tested this code since I don't have an MMX processor available.
+
+- Added DirectX detection code to determine if DirectX is installed.
+  MAME32 will not continue if DirectX is not properly installed.
+
+- UI displays the number of times each game has been played.
+
+- 2 joystick support added for the DirectInput joystick option. 
+
+- Support visible area in GDI windowed mode.
+
+- Vector games now use dirty pixels in fullscreen and DirectDraw window mode.
+
+0.30
+----
+- Dirty rectangle support in DirectDraw window & full screen modes.
+  This can speed up the display of games which support dirty rectanges.
+  This option is enabled by checking the "Draw only changed areas" checkbox.
+
+- Zip file support for roms, samples, hi and cfg files via Info-ZIP group's
+  UnZip zipfile-extraction program. Also support for using ZipFolders/ZipMagic.
+
+- Complete rom/sample directory support.
+  When loading ROMs and samples for 'gamename', MAME32 will look in these
+  directories and/or files in this order:
+  1) gamename             directory
+  2) gamename.zip         zip file
+  3) ROMS\gamename        directory
+     SAMPLES\gamename     directory
+  4) ROMS\gamename.zip    zip file
+     SAMPLES\gamename.zip zip file
+
+- Settings and options are now saved in the registry in
+  HKEY_CURRENT_USER/Software/Freeware/Mame32.
+
+- Resizable UI window.
+
+- Settable font for UI game list.
+
+- Sorting ascending/descending every other click on UI game list title.
+
+- Audio sample rate and sample bit depth setting. Sample rate options are
+  44100Hz, 22050Hz and 11025Hz. Sample bit rate settings are 8 or 16 bit.
+
+- Joystick and intellimouse wheel support for scrolling in UI list.
+  Use the -joygui command line option for joystick scrolling.
+
+- Support for integrated debugger. Compile with -DMAME_DEBUG.
+
+- Removed "Blt from BackBuffer" option by detecting if the primary surface
+  can be locked.
+
+- Added doubling and horizontal scan lines to 8 bit rendering in
+  DirectDraw window mode.
+
+- Single analog joystick support.
+
+- Dual digital joysticks are now supported. Also, Point of View input
+  devices can be used as joysticks 3 and 4.
+
+- The default directory for screen snapshots (F12) is now BMP instead of the
+  current directory. The directory will be created if it does not exist.
+
+- New accelerator in UI for Alt-p to start a game.
+
+- Added an option that allows using extra analog inputs on a joystick (the
+  spinner on a wingman warrior in particular) for the 'regular' analog inputs
+  usually read from the mouse/trackball.
+
+0.29
+----
+
+- The previous official and unofficial versions of MAME32 have been merged.
+  As of this version, there is only one, official version of MAME32, which
+  is the creation of Michael Soderstrom and Christopher Kirmse.  Naturally,
+  the MAME code is the creation of the entire MAME team.
+
+- Pause has been changed to no longer waste cpu cycles.
+
+- All of the options are now settable on a per-game basis.  Use 
+  View | Default Options to configure your most common options.  For games
+  that you want to use different options, select the game in the list view,
+  click on the options tab, and select your options for that game.  All
+  of these options are automatically saved into a file called mame32.cfg.
+
+- The list view of all games can be viewed in detailed mode (like the previous
+  version) or in list mode, which just lists the names of the games.  This
+  is configured in the View menu.
+
+- You can list either all games that MAME32 supports or just the games that
+  have the correct ROM files in place.  This is configured in the View menu.
+
+- Player 1 and Player 2 LEDs are now supported in some games (e.g. Pac Man),
+  and are drawn on the bottom right of the status window when in window mode.
+
+- DirectInput support has been added for both the keyboard and joysticks 
+  (joysticks only with DirectX 5).
+
+- Vertical scan lines are now supported in fullscreen mode.
+
+0.28.2
+------
+- Uncommented tempest hack to avoid lockup at 150,000 points.
+- MIDAS audio implementation is complete.
+- SEAl audio is now un-synchronized when throttle is off, just like msdos version.
+- Workaround in sndhrdw/psg.c: free was called on reset buffer pointer.
+
+0.28.1
+------
+- Bugfix in usrintrf.c: traksettings[total] crashed when traksettings == NULL.
+- Bugfix: osd_key_name now returns "None" instead of 0.
+- Workaround in sndhrdw/8910intf.c: free was called on reset buffer pointer.
+
+0.27.4
+------
+- Added F12 snapshot option.
+- Added -gamma option.
+- Added mouse support. Maybe obsolete?
+- Added -window option. Alias for -noddraw.
+- Bugfix: Window mode trak/mouse should stay within the window client area.
+- Bugfix: trak-ball now works with non-centering trak-ball games like ccastles.
+
+0.27.3
+------
+- Restructured SEAL audio code to be more like newer msdos code.
+- Added -vg option to GDI display.
+- Bugfix: kbd init now leaves the toggle state bit alone.
+- Bugfix: in osd_trak_read, NO_TRAK is returned if no trak.
+
+0.27.2
+------
+- Changed SEAL audio code to not poll when using the Windows wave device.
+  This should prevent SEAL locking up when playing streamed sound.
+- Vector game option -vg now forces -nodouble.
+
+0.27.1
+------
+- Took out a few WIN32 specific lines of code in the main source tree.
+- Took out my homegrown DirectSound audio option.
+- Added -midas option for MIDAS Digital Audio System. Looped sampled sounds don't work yet.
+
+0.261.2
+------
+- Fixed bug where DirectSound option with SEAL would cause SetCooperativeLevel
+  to fail on Windows 95.
+
+0.261.1
+------
+- Added joystick deadzone parameter option -joydz n.
+- Added -listmodes option to enumerate the possible DirectDraw video modes.
+  This will let you know what resolutions are valid for the -XxY parameter.
+- Fixed bug in mame.c where Machine->gfx[0] == 0 caused mame to crash.

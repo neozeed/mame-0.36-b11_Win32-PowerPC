@@ -1,0 +1,1136 @@
+0.36 BETA 11
+
+
+New games supported:
+--------------------
+
+Pole Position [Aaron Giles, Ernesto Corvi, Juergen Buchmueller]
+Pole Position II [Aaron Giles, Ernesto Corvi, Juergen Buchmueller]
+Dragon Buster [Manuel Abadia]
+Sky Kid [Manuel Abadia]
+Atari Soccer [Brad Oliver]
+Cisco Heat [Luca Elia]
+F1 Grand Prix Star [Luca Elia]
+The Percussor [Zsolt Vasvari]
+Turbo [Aaron Giles, Ernesto Corvi]
+
+
+New clones supported:
+---------------------
+
+Centipede (bootleg set 2)
+MX5000 (= Flak Attack)
+Vimana (Nova Apparate GMBH & Co)
+Dai-ressya Goutou (= Iron Horse)
+Blades of Steel (version T)
+Search and Rescue (World)
+Punisher (US)
+Phoenix (Centuri)
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Fixed gfx in Muscle Bomber Duo and continue screen in Captain Commando.
+  [Paul Leaman]
+
+
+These drivers have new or improved SOUND:
+-----------------------------------------
+
+- Improved emulation of the Galaxians sound subsystem. Samples are no longer
+  used. [Juergen Buchmueller, Tatsuyuki Satoh]
+
+- 051649 emulation, used in Haunted Castle. [CAB, Bryan McPhail]
+
+
+Other drivers changes:
+----------------------
+
+- Fixed Bosconian score handling. [Vernon C. Brooks]
+
+- Fixed Frisky Tom (note: delete friskyt.hi to fix coins). [Zsolt Vasvari]
+
+
+Changes to the main program:
+----------------------------
+
+- Rewritten the sample listing routines for -listsamples, -listsamdir,
+  -verifysamples and -listinfo. [Juergen Buchmueller]
+
+- [DOS] New command -verifysets, this verifies all available games and reports
+  their status (good/best available/bad). Also changed the format of the
+  -verifyroms output. Some frontends might need small adjustments to parse
+  the new output. [Bernd Wiebelt]
+
+
+Source:
+-------
+
+- Taken the 005289 emulation out of namco.c. [Bryan McPhail]
+
+- QSound player (preliminary) [CAB, Paul Leaman]
+
+- Some changes to the TMS9900 emulation that completely screw up Cosmic Guerilla.
+  [Raphael Nabet]
+
+- Y8950 emulator, used by ginganin. [Tatsuyuki Satoh]
+
+
+==========================================================================
+
+
+0.36 BETA 10
+
+Important: due to changes in the palette system, there might be games that
+had correct colors before, and wrong now. Please let us know if you find
+any.
+
+
+New games supported:
+--------------------
+
+Pong (this game has no ROMs) [Juergen Buchmueller]
+I, Robot (suggestion: turn off autoframeskip) [Dan Boris, John Dickson]
+Baraduke [Manuel Abadia]
+Metro-Cross [Manuel Abadia]
+Flak Attack [Manuel Abadia]
+D-Con [Bryan McPhail]
+Dr. Toppel Tankentai [Quench]
+Double Dragon 3 [Carlos A. Lozano, Richard Bush, Bryan McPhail]
+Combatribes [Carlos A. Lozano, Richard Bush, Bryan McPhail]
+Dynamite Duke (play it with sound disabled) [Bryan McPhail]
+
+
+New clones supported:
+---------------------
+
+Frogger (Konami)
+Spaltan X (= Kung Fu Master)
+Joyful Road (= Munch Mobile)
+Majuu no Ohkoku (= Devil World)
+Rock 'n Rope (Konami)
+Samurai (set 2)
+Kaiketsu Yanchamaru (= Kid Niki)
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Fixed lots of drivers for -depth 16 support. [Zsolt Vasvari]
+
+
+These drivers have new or improved SOUND:
+-----------------------------------------
+
+- Fixed music in cworld2j [CAB]
+
+
+Other drivers changes:
+----------------------
+
+- Fixed Go Go Mr. Yamaguchi [Takahiro Nogi]
+
+- Fixed controls in Ikari III level 2. [Nicola Salmoria]
+
+- Fixed hangs in TNZS. [Quench]
+
+
+Changes to the main program:
+----------------------------
+
+- [DOS] Adjusted the autoframeskip code, to make it increase frameskip a little
+  faster, but not as fast as it was before the previous change. Let's see how
+  this performs. [Nicola Salmoria]
+
+- Support for gzipped (NOT zipped) cheat files. Uncompressed files still work.
+  [Mathis Rosenhauer]
+
+
+Source:
+-------
+
+- Merged the flags and orientation fields of struct GameDriver.
+
+- Removed prom_memory_region from struct GameDriver. The PROM memory region is
+  now specified directly in the ROM declaration, with
+  ROM_REGIONX( length, REGION_PROMS )
+  Similarly, REGION_GFX1..8 are defined for gfx decoding, but drivers have not
+  been updated to use them. See drivers/namcos86.c for the only example.
+
+- Removed samplenames from stuct GameDriver. It is now in struct
+  SamplesInterface, and some drivers load the samples directly without using
+  that structure. Due to this change, -listsamples and -verifysamples, and the
+  samples information in -listinfo, are no longer available. Actually, samples
+  might not be working at all - I haven't tested them. [Nicola Salmoria]
+
+- Removed base and size from struct MemoryReadAddress, use MemoryWriteAddress
+  to store the pointers. Several drivers had the bad habit of using
+  MemoryReadAddress to initialize those variables, hopefully I haven't broken
+  any while updating them. [Nicola Salmoria]
+
+
+==========================================================================
+
+
+0.36 BETA 9.1
+
+The license had to be changed again (VII. Derivative Works).
+
+
+Other drivers changes:
+----------------------
+
+- Fixed a few bugs in the TMS34010 games. [Aaron Giles]
+
+
+==========================================================================
+
+
+0.36 BETA 9
+
+Important: due to changes in the palette system, there might be games that
+had correct colors before, and wrong now. Please let us know if you find
+any.
+
+
+New games supported:
+--------------------
+
+Kick and Run [Nicola Salmoria, Ernesto Corvi]
+KiKi KaiKai [Nicola Salmoria, Ernesto Corvi]
+Perfect Soldiers [Bryan McPhail]
+Big Striker [Luca Elia]
+Kick Off [Luca Elia]
+Dream Soccer '94 [Bryan McPhail]
+Kageki [Takahiro Nogi]
+
+
+New clones supported:
+---------------------
+
+Mega Zone (Konami)
+Donkey Kong 3 (Japan)
+Ajax (Japan)
+Ring no Ohja (= The Main Event)
+Thunder Blaster (= Lethal Thunder)
+Fantasy (SNK)
+Blue Print (Jaleco)
+X-Men (2 Players Japan)
+Checkman (Galaxian hardware) [Zsolt Vasvari]
+Contra (Japan)
+Karate Dou (= Karate Champ)
+Undercover Cops (Japan)
+Dump Matsumoto (= Body Slam)
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Fixed raster effects in Turf Masters (Japan course) and Zed Blade. Improved
+  Super Sidekicks 2. [Massimo Morra]
+
+
+Other drivers changes:
+----------------------
+
+- Fixes to Lazer Command and Meadows Lanes. [Malcolm Lear]
+
+
+Changes to the main program:
+----------------------------
+
+- 16 bit support in the tilemap manager, so the Namco System 2 games no longer
+  require -depth 8. [Phil Stroffolino]
+
+- [DOS] Changed the -depth option behaviour, now it can be either 8, 16, or
+  auto. The default is auto, which uses the color depth appropriate for the
+  game. 8 forces use of a 256 colors display (faster but less accurate), 16
+  forces use of a 16-bit display (not suggested, doesn't work with all games).
+  MAKE SURE TO SET depth = auto IN MAME.CFG, OR YOU'LL USE 16-BIT IN ALL GAMES.
+
+- Fixed a few bugs in the NEC CPU core that caused problems in Hook, Gunforce,
+  Lethal Thunder and maybe others. [Bryan McPhail, Nao]
+
+- Several changes and improvements to the TMS34010 emulation and to the
+  Williams games using CVSD sound. [Aaron Giles]
+
+
+Source:
+-------
+
+- [DOS] Now compiled with Allegro 3.9.27 WIP.
+
+- Replaced MachineDriver->video_attributes VIDEO_SUPPORTS_16BIT with
+  GameDriver->flags GAME_REQUIRES_16BIT.
+  Added color_depth to struct RunningMachine and struct GameOptions. OS
+  dependant code may set it to force a specific depth.
+  Added depth parameter to osd_create_display(). The OS dependant code MUST
+  respect it - if it has special requirements, it must set the GameOptions
+  flag beforehand.
+
+- Calling palette_recalc() is now *MANDATORY* in all drivers that modify the
+  palette. The palette will not be updated otherwise.
+
+- Removed adpcm_sample_list, palette and colortable from struct GameDriver.
+  Changed char *color_prom to int prom_memory_region.
+
+- Updated the TMS9900 emulator. [Raphael Nabet]
+
+
+==========================================================================
+
+
+0.36 BETA 8
+
+Another clause had to be added to the license. Check it in readme.txt
+(at the end of VII. Derivative Works).
+
+
+New games supported:
+--------------------
+
+Bogey Manor [Bryan McPhail]
+Trio the Punch [Bryan McPhail]
+Chuka Taisen [Quench]
+Assault [Keith Wilkins]
+Ordyne [Keith Wilkins]
+Mirai Ninja [Keith Wilkins]
+Phelios [Keith Wilkins]
+Legend of Walkyrie [Keith Wilkins]
+Finest Hour [Keith Wilkins]
+Burning Force [Keith Wilkins]
+Marvel Land [Keith Wilkins]
+Dragon Saber [Keith Wilkins]
+Rolling Thunder 2 [Keith Wilkins]
+Cosmo Gang [Keith Wilkins]
+The Hustler [Manuel Abadia]
+Vulcan Venture [Phil Stroffolino, Nao, Dave Spicer]
+Devil World [Phil Stroffolino]
+Cue Brick [Phil Stroffolino]
+Hard Puncher [Phil Stroffolino]
+
+
+New clones supported:
+---------------------
+
+R-Type II (Japan)
+Arkanoid 2 (Japan)
+Looper (= Changes)
+The End (Konami)
+Tumble Pop (original) [Bryan McPhail, Chris Hardy]
+Tokushu Butai Jackal
+Out Zone (bootleg)
+Hyper Olympic '84 (= Hyper Sports)
+Guttong Gottong (= Locomotion)
+Strategy X (Konami)
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Fixed sprite lag in cps1, bionicc, lastduel. [Bryan McPhail]
+
+- Fixed priorities in wndrmomo and genpeitd. [E. Watanabe]
+
+- Sped up a little the NeoGeo raster effects. Enabled them in Karnov Revenge
+  and Galaxy Fight. Fixed the field in ssideki3 etc. [Massimo Morra]
+
+- Fixed sprite Y offset in the Simpsons dreamland level. Apologies for taking
+  so long, I couldn't find the time to play it that far and hadn't realized I
+  just had to use the attract mode of the Japanese version. [Nicola Salmoria]
+
+
+These drivers have new or improved SOUND:
+-----------------------------------------
+
+- CVSD sound in Mouse Trap. [Dan Boris, Aaron Giles]
+
+
+Changes to the main program:
+----------------------------
+
+- [DOS] Changed the autoframeskip code, making it less anxious to increase
+  frameskip as soon as speed drops below 100%. Let's see if this makes things
+  better or worse. [Nicola Salmoria]
+
+- [DOS] The mouse buttons are no longer aliases for joystick buttons, they are
+  independently recognized. They are still considered "joystick" inputs though,
+  so if you want to use them you have to redefine the controls in the Joystick
+  menu. This is a minor annoyance that was needed to allow interfacing a Discs
+  of Tron controller to the mouse port (spinner + up and down switches) while
+  still using joystick buttons 1 and 2 for fire and deflect. [Nicola Salmoria]
+
+- [DOS] Support for ZIPped input files (-playback) and artwork. Well, PNG won't
+  compress very well, but I added it anyway ;) [Juergen Buchmueller]
+
+
+Source:
+-------
+
+- Finally fixed the CMPX instruction in the 680x core. On the 6800 it does
+  not affect the C flag, on the others (6803, 63701) it does.
+  [Tatsuyuki Satoh]
+
+- Fixes to the x86 asm 68k core. [Mike Coates]
+
+- VIDEO_BUFFERS_SPRITERAM. See bionicc, darkseal, lastduel for usage examples.
+  [Bryan McPhail]
+
+- Added vh_eof_callback to the MachineDriver structure. See bionicc, cps1,
+  lastduel for usage examples. [Nicola Salmoria]
+
+- Cleaned up the 6809 and Konami-2 emulations. [Juergen Buchmueller]
+
+- C140 emulation. [Phil Stroffolino]
+
+
+==========================================================================
+
+
+0.36 BETA 7
+
+New games supported:
+--------------------
+
+Spiker [Aaron Giles]
+Finalizer - Super Transformation [Nicola Salmoria]
+Crazy Climber 2 [Takahiro Nogi]
+Syusse Oozumou [Takahiro Nogi]
+Mayday [Aaron Giles]
+Chimera Beast [Luca Elia]
+Iga Ninjyutsuden [Luca Elia]
+Plus Alpha [Luca Elia]
+Peek-a-Boo! [Luca Elia]
+Orbitron [Zsolt Vasvari]
+Mystic Riders [Bryan McPhail]
+Herbie at the Olympics [Mike Coates]
+Arcade Classics [Aaron Giles]
+Sparkz [Aaron Giles]
+Battle Chopper [Nao]
+Ninja Spirit [Nao]
+Image Fight [Nao]
+Legend of Hero Tonma [Nao]
+X Multiply [Nao]
+Dragon Breed [Nao]
+
+
+New clones supported:
+---------------------
+
+Snow Bros (set 3)
+Makai Densetsu (= Legend of Makai)
+Growl (US)
+Runark (= Growl)
+Tough Turf (US) [Andrew Prime]
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Added raster effects to Neo Turf Masters and Sengoku 2. [Massimo Morra]
+
+- Fixed colors in Wanted, Marine Boy, Changes and Hopper Robo. [Zsolt Vasvari]
+
+- More fixes in the Toaplan games. [Satoshi Suzuki]
+
+
+These drivers have new or improved SOUND:
+-----------------------------------------
+
+- Fixed YM2151 sound board support for Joust 2. [Aaron Giles]
+
+- Sound in Blasted and Max RPM. [Aaron Giles]
+
+- Completed samples support in Space Panic. [Mike Coates]
+
+- Samples support in Invinco and Pulsar. [Zsolt Vasvari]
+
+- Fixed coin sound in Naughty Boy. [Sal Bugliarisi]
+
+- Sound in Hot Chase. [CAB]
+
+
+Other drivers changes:
+----------------------
+
+- Improved Battle Lane. [Paul Leaman]
+
+- Fixed Turkey Shoot. [Aaron Giles]
+
+
+Changes to the main program:
+----------------------------
+
+- [DOS] The new Allegro library supports the Gravis GrIP devices, use
+  -joy grip or -joy grip4 to enable.
+
+
+Source:
+-------
+
+- [DOS] Now compiled with Allegro 3.9.26 WIP.
+
+- Several improvements to FM sound emulators. This also fixes crashes in some
+  Jaleco Mega System 1 games. [Tatsuyuki Satoh]
+
+- Improvements to the other YM2151 emulator too. [Jarek Burczynski]
+
+- VIDEO_UPDATE_BEFORE_VBLANK is now the default. If you want your driver to
+  redraw the screen after vblank, use VIDEO_UPDATE_AFTER_VBLANK.
+
+- Rewritten the HC55516 CVSD decoder. This affects Sinistar, Joust 2, Arch
+  Rivals, Pigskin, Tri-Sports, Smash TV, Trog, Narc. [Aaron Giles]
+
+- Some improvements to the Z80 emulator. [Juergen Buchmueller]
+
+- Some fixes to HD63701 IRQ handling, and support for ICI (Input Capture
+  Interrupt). [Tatsuyuki Satoh]
+
+- Improvements to the 34010 emulation. [Aaron Giles]
+
+- New function findmemorychunk() that lets you look up a chunk of memory and
+  get its start/end addresses, and its base. This can be used (carefully!) by
+  drivers that wish to access memory directly without going through the
+  readmem/writemem accessors (e.g., blitters). [Aaron Giles]
+
+- Replaced cpu_reset() with cpu_set_reset_line().
+  cpu_set_reset_line(num,PULSE_LINE) is equivalent to the old cpu_reset().
+  ASSERT_LINE resets the cpu and halts it. CLEAR_LINE restarts it.
+  This avoids the need to call cpu_halt() in most cases. [Nicola Salmoria]
+
+
+==========================================================================
+
+
+0.36 BETA 6
+
+New games supported:
+--------------------
+
+Meikyu Jima (Kickle Cubicle) [Nicola Salmoria]
+R-Type [Nicola Salmoria]
+R-Type II [Nicola Salmoria]
+Major Title (preliminary) [Nicola Salmoria]
+Hammerin' Harry [Nicola Salmoria]
+Gallop [Nicola Salmoria]
+Blade Master [Bryan McPhail]
+Gunforce (preliminary) [Bryan McPhail]
+Hook (preliminary) [Bryan McPhail]
+Undercover Cops [Bryan McPhail]
+R-Type Leo [Bryan McPhail]
+Major Title 2 (preliminary) [Bryan McPhail]
+In The Hunt (preliminary) [Bryan McPhail]
+Lethal Thunder [Bryan McPhail]
+Pandora's Palace [Manuel Abadia]
+Rock 'n Rage [Manuel Abadia]
+Blades of Steel (not working due to protection) [Manuel Abadia]
+Power Drive [Aaron Giles]
+Turbo Tag [Aaron Giles]
+Zwackery [Aaron Giles]
+Spy Hunter 2 [Aaron Giles]
+Blasted [Aaron Giles]
+Arch Rivals [Aaron Giles]
+Tri-Sports [Aaron Giles]
+Pigskin 621AD [Aaron Giles]
+Name that Tune [Aaron Giles]
+Trivial Pursuit (Genus II) [Aaron Giles]
+Trivial Pursuit (Baby Boomer Edition) [Aaron Giles]
+Trivial Pursuit (Young Player's Edition) [Aaron Giles]
+
+
+New clones supported:
+---------------------
+
+Tapper (set 2) [Aaron Giles]
+Demolition Derby (2 players) [Aaron Giles]
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Improved screen priority in Lifeforce, Salamander, Gradius, etc. [E.Watanabe]
+
+- Fixed priorities and scroll offset in the Toaplan games. [Satoshi Suzuki]
+
+
+These drivers have new or improved SOUND:
+-----------------------------------------
+
+- Fixed Xenophobe. [Aaron Giles]
+
+- Samples and DAC support in Space Panic. [Mike Coates]
+
+- Fixed Ginga Ninkyouden. [Takahiro Nogi]
+
+- Fixed Genpei Toumaden. [Takahiro Nogi]
+
+
+Other drivers changes:
+----------------------
+
+- Gun support in Terminator 2. You must use the calibration screen to
+  calibrate the gun.  When it asks the shoot the upper left corner, move the
+  mouse towards (0,0), the middle is (128, 128) and the lower right corner
+  is obviously (255, 255). If you have problems, delete hi/term2.hi.
+  [Zsolt Vasvari]
+
+- Simulated the protection in Renegade. [Phil Stroffolino]
+
+
+Source:
+-------
+
+- Fixed bug in the 6800 CMPX instructions. [Jess Askey]
+
+- Changed the 6821 PIA interface. [Aaron Giles]
+
+- New NEC CPU cores. [Oliver Bergmann]
+
+
+==========================================================================
+
+
+0.36 BETA 5
+
+New games supported:
+--------------------
+
+Sente Diagnostic Cartridge [Aaron Giles]
+Chicken Shift [Aaron Giles]
+Goalie Ghost [Aaron Giles]
+Hat Trick [Aaron Giles]
+Off the Wall (Sente) [Aaron Giles]
+Snake Pit [Aaron Giles]
+Snacks'n Jaxson [Aaron Giles]
+Stocker [Aaron Giles]
+Trivial Pursuit (Genus I) [Aaron Giles]
+Trivial Pursuit (All Sports Edition) [Aaron Giles]
+Gimme A Break [Aaron Giles]
+Mini Golf [Aaron Giles]
+Toggle [Aaron Giles]
+Night Stocker [Aaron Giles]
+Street Football [Aaron Giles]
+Rescue Raider [Aaron Giles]
+Gang Busters [Manuel Abadia]
+Battlantis [Manuel Abadia]
+Quarth [Nicola Salmoria]
+Mr. Goemon [Nicola Salmoria]
+Mad Motor [Bryan McPhail]
+The Astyanax [Luca Elia]
+Hachoo! [Luca Elia]
+Saint Dragon [Luca Elia]
+Cybattler [Luca Elia]
+
+
+New clones supported:
+---------------------
+
+Lost Worlds [Yasuhiro Ogawa]
+Trojan (US) [Quench]
+Secret Agent (= Sly Spy) [Bryan McPhail]
+Indiana Jones and the Temple of Doom (set 4) [Aaron Giles]
+RodLand [Luca Elia]
+Phantasm [Luca Elia]
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Fixed colors in Return of the Invaders. [Andrea Mazzoleni]
+
+
+These drivers have new or improved SOUND:
+-----------------------------------------
+
+- Improved sound in the Exidy 440 games. [Aaron Giles]
+
+- Samples support in Depthcharge. [Zsolt Vasvari]
+
+
+Other drivers changes:
+----------------------
+
+- Extracted all the data from the Heavy Barrel microcontroller, so all
+  special weapons and powerups appear correctly. Also a lot of other fixes
+  to Data East games. [Bryan McPhail]
+
+- Artwork in Space Wars. [Nathan Sturm]
+
+- Fixed steering wheel in Speed Freak. [Mathis Rosenhauer]
+
+- The Cinematronics driver now can handle games with backdrop + overlay. The
+  pngs have to be renamed:
+  backdrop: drivername + b.png
+  overlay:  drivername + o.png
+  [Mathis Rosenhauer]
+
+
+Source:
+-------
+
+- New input type IPT_PEDAL. [Aaron Giles]
+
+
+==========================================================================
+
+
+0.36 BETA 4
+
+New games supported:
+--------------------
+
+Bottom of the Ninth [Nicola Salmoria]
+Detana!! Twin Bee [Nicola Salmoria]
+Rollergames [Nicola Salmoria]
+Surprise Attack [Nicola Salmoria]
+Shadow Land [Ernesto Corvi, Tatsuyuki Satoh]
+Dragon Spirit [Ernesto Corvi, Tatsuyuki Satoh]
+Blazer [Ernesto Corvi, Tatsuyuki Satoh]
+Pacmania [Ernesto Corvi, Tatsuyuki Satoh]
+Galaga '88 [Ernesto Corvi, Tatsuyuki Satoh]
+Marchen Maze [Ernesto Corvi, Tatsuyuki Satoh]
+World Court [Ernesto Corvi, Tatsuyuki Satoh]
+Splatter House [Ernesto Corvi, Tatsuyuki Satoh]
+Rompers [Ernesto Corvi, Tatsuyuki Satoh]
+Blast Off [Ernesto Corvi, Tatsuyuki Satoh]
+Dangerous Seed [Ernesto Corvi, Tatsuyuki Satoh]
+World Stadium 90 [Ernesto Corvi, Tatsuyuki Satoh]
+Pistol Daimyo no Bouken [Ernesto Corvi, Tatsuyuki Satoh]
+Souko Ban Deluxe [Ernesto Corvi, Tatsuyuki Satoh]
+Fighting Hawk [Olivier Galibert]
+Raimais [Olivier Galibert]
+Champion Wrestler [Olivier Galibert]
+Puzznic [Olivier Galibert]
+Plotting [Olivier Galibert]
+Palamedes [Olivier Galibert]
+American Horseshoes [Olivier Galibert]
+Cachat [Olivier Galibert]
+Ark Area [Paolo Venturi]
+WEC Le Mans 24 [Luca Elia]
+Hot Chase [Luca Elia]
+
+
+New clones supported:
+---------------------
+
+Konami '88 [Gerald Vanderick]
+Thunder Cross (Japan) [Yasuhiro Ogawa]
+Crime Fighters (Japan)
+Garuka (= Devastators)
+Block (= Arkanoid) [HIGHWAYMAN]
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Fixed colors in Mysterious Stones. [Zsolt Vasvari]
+
+
+Other drivers changes:
+----------------------
+
+- Improved the protection workaround in Sunset Riders. [Ernesto Corvi]
+
+- Protection workaround in Thunder Cross - still not perfect. [Ernesto Corvi]
+
+- Fixed scores in Bosconian. [Gamester]
+
+- Several fixes and improvmeents to the System 16 games. [Andrew Prime]
+
+- Fixed cocktail mode in several games. [Chad Hendrickson]
+
+
+Changes to the main program:
+----------------------------
+
+- Fixed a 68000 "bug" (actually an undocumented feature of the cpu) that
+  caused the timer to roll over from 00 to 99 in KOF98. [Darren Olafson]
+
+- Fixed a Konami CPU bug which caused problems with Parodius. [Ernesto Corvi]
+
+- [DOS] Changed the tweked VGA modes definitions to be more compatible.
+  It is suggested to delete mame.cfg to get rid of the obsolete tweak
+  parameters. Remember to set tweak = yes after doing so. [Brian Lewis]
+
+- Screen shots can be saved while the game is paused. [Phil Hopely]
+
+- You can single step while the game is paused, press Shift+P to advance to
+  next frame. [Phil Hopely]
+
+
+Source:
+-------
+
+- New PORT_SERVICE() macro, use it instead of the long declaration needed for
+  the service mode dip switch. [Nicola Salmoria]
+
+
+==========================================================================
+
+
+0.36 BETA 3
+
+New games supported:
+--------------------
+
+Flash Gal [Nicola Salmoria]
+Air Wolf [Nicola Salmoria]
+Parodius DA! [Nicola Salmoria]
+'88 Games [Nicola Salmoria]
+Vendetta [Ernesto Corvi]
+Thunder Cross (no collision detection, probably protection) [Bryan McPhail]
+Super Contra [Manuel Abadia]
+Off the Wall [Aaron Giles]
+Enduro Racer [Andrew Prime]
+Samurai (Taito) [Phil Stroffolino]
+Nunchackun [Phil Stroffolino]
+Go Go Mr. Yamaguchi / Yuke Yuke Yamaguchi-kun (not working) [Phil Stroffolino]
+Hunchback (Scramble and Donkey Kong conversions) [Mike Coates]
+Dokaben [Nicola Salmoria]
+Capcom Baseball [Nicola Salmoria]
+
+
+New clones supported:
+---------------------
+
+Empire City: 1931 (= Street Fight) [Gerald Vanderick]
+Repulse (= Son of Phoenix) [Gerald Vanderick]
+'99 The Last War (= Son of Phoenix) [Gerald Vanderick]
+Strider (Japan set 2) [Marco Cassili]
+Sunset Riders (5 new sets) [Nicola Salmoria]
+Aliens (Japan) [Yasuhiro Ogawa]
+Simpsons (Japan) [Yasuhiro Ogawa]
+Gryzor (= Contra) [Yasuhiro Ogawa]
+Akuma-Jou Dracula (= Haunted Castle) [Yasuhiro Ogawa]
+E-Swat (protected, not working) [Andrew Prime]
+Bermuda Triangle (Japan) [Alessio Manuele]
+64th Street (Japan) [Alessio Manuele]
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Fixed colors in Empire City: 1931. [Nicola Salmoria]
+
+- Fixed the background in Led Storm. [Bryan McPhail]
+
+- Added the zooming/rotating layer to Ajax. [Nicola Salmoria]
+
+
+These drivers have new or improved SOUND:
+-----------------------------------------
+
+- Added support for external volume control to the K007232 and fixed Aliens,
+  Ajax etc. [Nicola Salmoria]
+
+
+Other drivers changes:
+----------------------
+
+- Emulated the 68705 protection in Mania Challenge. [Nicola Salmoria]
+
+
+Changes to the main program:
+----------------------------
+
+- Changed the UPD7759 emulator to support two chips ('88 Games needed this)
+  and fixed a bug in the ADPCM decoding. [Ernesto Corvi]
+
+
+Source:
+-------
+
+- The gfxdata field of the GfxElement structure is no longer a osd_bitmap *; it
+  is instead a simple unsigned char *, pointing to a continuous stream of pixel
+  data. The new line_modulo and char_modulo fields are helpers to find the
+  offset in the array. [Nicola Salmoria]
+
+- Updated the 68000 C core. [Karl Stenerud]
+
+
+==========================================================================
+
+
+0.36 BETA 2
+
+New games supported:
+--------------------
+
+Mad Crasher [Phil Stroffolino]
+Vanguard II [Phil Stroffolino]
+Missing in Action [Nicola Salmoria]
+Lightning Fighters [Nicola Salmoria]
+X-Men [Nicola Salmoria]
+Sunset Riders (partially playable due to protection) [Oliver Stabel, Nicola Salmoria]
+TMNT 2 (some gfx problems due to protection) [Oliver Stabel, Nicola Salmoria]
+Ajax (preliminary) [Manuel Abadia]
+Crime Fighters [Manuel Abadia]
+Aliens [Manuel Abadia]
+The Simpsons [Ernesto Corvi]
+Gyrodine [Ernesto Corvi]
+Son of Phoenix [Ernesto Corvi]
+SRD Mission [Ernesto Corvi]
+Haunted Castle [Bryan McPhail]
+Garyo Retsuden [Bryan McPhail]
+Crude Buster [Bryan McPhail]
+Stadium Hero [Bryan McPhail]
+Bomb Jack Twin [Mirko Buffoni]
+Aztarac [Mathis Rosenhauer]
+Bay Route [Andrew Prime]
+Outrun [Andrew Prime]
+Space Harrier [Andrew Prime]
+Super Hangon [Andrew Prime]
+ThunderJaws [Aaron Giles]
+Batman [Aaron Giles]
+Relief Pitcher [Aaron Giles]
+Ginga NinkyouDen [Luca Elia]
+Street Fight [Mark McDougall]
+
+
+New clones supported:
+---------------------
+
+Rush & Crash (= Speed Rumbler)
+Devastators (version Z) [Nicola Salmoria]
+a lot of working and non working clones of System 16 games [Andrew Prime]
+Hydra (prototype) [Aaron Giles]
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Fixed sprites in Contra. [Phil Stroffolino]
+
+- Accurate colors in Darwin 4078.
+
+- Fixed sprite colors in Xybots. [Aaron Giles]
+
+
+These drivers have new or improved SOUND:
+-----------------------------------------
+
+- 053260 emulation in Punk Shot. [Ernesto Corvi]
+
+- Most System 16 games have sound. [Andrew Prime]
+
+- Support for new samples in Q*Bert and Reactor. [Fabrice Frances]
+
+
+Other drivers changes:
+----------------------
+
+- Hacked protection in Wild Western, fixed bonus game, added second button
+  to jump onto the train. [Zsolt Vasvari]
+
+- Sea Fighter Poseidon should be working now.
+
+- Various fixes to System 16 games. [Andrew Prime]
+
+
+Changes to the main program:
+----------------------------
+
+- Further improved the YM3812 emulator, especially the rhythm section (check
+  Snow Bros!). [Tatsuyuki Satoh]
+
+- [DOS] -noym3812opl is now the default (this won't have effect unless you
+  delete mame.cfg). [Nicola Salmoria]
+
+- Fixed a bug in the T-11 emulation which caused APB not to work and the end
+  of race results in Super Sprint to contain garbage. [Aaron Giles]
+
+
+Source:
+-------
+
+- Rewritten the OS dependant joystick interface, it's like the keyboard
+  interface now. Also a few function renames, and osd_wait_keypress() must
+  now return a keycode. [Nicola Salmoria]
+
+- [DOS] The above should remove all limitations on number of axis and buttons,
+  so e.g. joypads with multiple sticks should work. Changes to the analog
+  devices handling will follow. [Nicola Salmoria]
+
+- Konami 052001/053248 CPU emulation, used by many games. [Ernesto Corvi,
+  Manuel Abadia]
+
+- Konami 053260 sound chip emulation. [Ernesto Corvi]
+
+- Sega PCM and RFC68 sound emulators, used by System 16. [Hiromitsu Shioya]
+
+- Moved the profiler into the core. The OS dependant code need only provide a
+  osd_cycles() inline function/macro in osinline.h, returning a counter. The
+  function must be as low overhead as possible since it is called thousands
+  of times per second when the profiler is active. The counter should be as
+  precise as possible, to provide accurate measurements; the ideal unit is the
+  number of CPU cycles, e.g. as returned by the Pentium instruction RDTSC.
+  The profiler display is handled by the core, so the OS code only has to make
+  the usual profiler_mark() calls to profile different sections of the code
+  (PROFILER_BLIT, PROFILER_SOUND and so on).
+  Note: to avoid conflicts, the OS code must do the check for the "show fps"
+  key this way, otherwise input will be lost:
+	if (!keyboard_pressed(KEYCODE_LSHIFT) && !keyboard_pressed(KEYCODE_RSHIFT)
+		&& !keyboard_pressed(KEYCODE_LCONTROL) && !keyboard_pressed(KEYCODE_RCONTROL)
+		&& input_ui_pressed(IPT_UI_SHOW_FPS))
+  [Nicola Salmoria]
+
+- [DOS] The -profiler switch is no longer needed to enable the profiler, it is
+  automatically turned on and off when you hit Shift+F11. [Nicola Salmoria]
+
+
+==========================================================================
+
+
+0.36 BETA 1
+
+New games supported:
+--------------------
+
+Champion Skill [Mirko Buffoni]
+Vapor Trail - Hyper Offence Formation [Bryan McPhail]
+Meteoroids [Zsolt Vasvari]
+Razzmatazz [Nicola Salmoria]
+Power Surge [Nicola Salmoria]
+High Way Race [Zsolt Vasvari]
+Blood Bros [Carlos A. Lozano, Phil Stroffolino, Richard Bush]
+Riot City [Andrew Prime]
+Body Slam [Andrew Prime]
+Quartet [Andrew Prime]
+Atomic Point [Andrew Prime]
+Moonwalker  [Andrew Prime]
+Shadow Dancer [Andrew Prime]
+Hang-On [Andrew Prime]
+Raiden [Oliver Bergmann, Bryan McPhail, Randy Mongenel]
+Hydra [Aaron Giles]
+Pit Fighter [Aaron Giles]
+Kick Start (not working due to protection) [Zsolt Vasvari]
+Sky Soldiers [Bryan McPhail]
+Time Soldiers [Bryan McPhail]
+Sky Adventure [Bryan McPhail]
+Gang Wars [Bryan McPhail]
+Gold Medalist (not working) [Bryan McPhail]
+Super Champion Baseball (not working) [Bryan McPhail]
+Hopper Robo [Zsolt Vasvari]
+Ikari III - The Rescue [Bryan McPhail]
+Cosmic Chasm [Mathis Rosenhauer]
+Munch Mobile [Phil Stroffolino]
+Marvin's Maze [Phil Stroffolino]
+
+
+New clones supported:
+---------------------
+
+Midnight Resistance (Japan) [Yasuhiro Ogawa]
+WBML (Japan) [Yasuhiro Ogawa]
+Wild Western (set 2) [Zsolt Vasvari]
+Pomping World (=Pang) [Yasuhiro Ogawa]
+Mario Bros. (Japan) [Nicola Salmoria]
+Altered Beast (Ver 1) [Andrew Prime]
+Golden Axe (Ver 1) [Andrew Prime]
+Shinobi (Sys16A Bootleg) [Andrew Prime]
+Tough Turf [Andrew Prime]
+Wonderboy 3 - Monster Lair [Andrew Prime]
+Cyberball (4 players) [Aaron Giles]
+Tournament Cyberball 2072 [Aaron Giles]
+Toobin' (version 2) [Aaron Giles]
+Toobin' (prototype) [Aaron Giles]
+Combat School (trackball) (not working) [Manuel Abadia]
+Boot Camp (= Combat School) (not working) [Manuel Abadia]
+
+
+These drivers have improved GRAPHICS:
+-------------------------------------
+
+- Fixed bad tiles in some CPS1 games. [Paul Leaman]
+
+- Fixed sprite flipping in Xevious. [Nicola Salmoria]
+
+- Fixed title colors in Pinball Action. [Mirko Buffoni]
+
+- Improved sprite colors in Great Swordman. [Jarek Parchanski, Charlie
+  Miltenberger]
+
+- Sprite-sprite collision detection and other improvements in the Taito SJ
+  games. This fixes Bio Attack. Wild Western is now fully playable.
+  [Zsolt Vasvari]
+
+- Fixed Mega Zone high score display. [Chris Hardy]
+
+- Fixed text colors in Legend of Kage. [Phil Stroffolino]
+
+
+Other drivers changes:
+----------------------
+
+- Major improvements to the System 16 driver, most games are working now. Many
+  still lack sound though. [Andrew Prime]
+
+- Fixed controls and graphics in Commando (Sega), which is now fully playable.
+  This also fixes diagonal shots in Bosconian. Jungler shots are broken though.
+  [Nicola Salmoria]
+
+
+These drivers have new or improved SOUND:
+-----------------------------------------
+
+- Fixed hanging sound in 4D Warriors. [Zsolt Vasvari]
+
+- Added "Get Ready!" speech to Grobda. [Zsolt Vasvari]
+
+- Fixed sound in Ninja Kid 2. [Jarek Parchanski]
+
+
+Changes to the main program:
+----------------------------
+
+- New digital YM3812/YM3526 emulator (in the DOS version, use -noym3812opl to
+  enable it). It doesn't support the rhythm section yet, but is overall better
+  than the old one. [Tatsuyuki Satoh]
+
+- [DOS] Triple buffer support in tweaked VGA modes. Warning: this is slower
+  than standard tweaked modes. [Brian Lewis]
+
+- [DOS] If you are using a HotRod, use the -hotrod switch to adjust the default
+  keyboard settings. [Nicola Salmoria]
+
+
+Source:
+-------
+
+- [DOS] Compiled with Allegro WIP 3.9.23. IMPORTANT: there is a bug in
+  Allegro's new keyboard hangling, which will prevent numeric pad keys from
+  working properly when used together with ctrl and alt. Until it is fixed in
+  the main Allegro distribution, you will have to replace the source file
+  allegro\src\misc\pckeys.c with the provided one, and recompile Allegro.
+  [Nicola Salmoria]
+
+- [DOS] The new Allegro provides support for PSX and N64 pads (info here:
+  http://www.debaser.force9.co.uk/ccmame), and for the Wingman Warrior.
+  The names for the -joy parameter are
+  psxlpt1
+  psxlpt2
+  psxlpt3
+  n64lpt1
+  n64lpt2
+  n64lpt3
+  wingwarrior
+  [Nicola Salmoria]
+
+- Rewritten the OS dependant keyboard interface. A rewrite of the koystick
+  interface will follow. The OS dependant code now only has to provide four
+  functions:
+  osd_get_key_list()
+  osd_is_key_pressed()
+  osd_customize_inputport_defaults() [optional]
+  osd_wait_keypress() [optional]
+  everything else is handled by the main core.
+  [Nicola Salmoria]
+
+- New sprite manager, used in System 16, Ninja Gaiden, Shoot Out, Blood Bros.
+  [Phil Stroffolino]
+
+- Took the gfx drawing functions out of common.c into the new dragfx.c.
+  In preparation for further changes to the data structures, abstracted the
+  low level data copying and used macros to generate 8-bit and 16-bit
+  versions. [Nicola Salmoria]

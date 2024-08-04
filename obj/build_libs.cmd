@@ -1,0 +1,30 @@
+del /F *.lib *.obj
+lib /out:cpu01.lib cpu\ccpu\*.o
+lib /out:cpu02.lib cpu\gensync\*.o
+lib /out:cpu03.lib cpu\h6280\*.o
+lib /out:cpu04.lib cpu\i8039\*.o
+lib /out:cpu05.lib cpu\i8085\*.o
+lib /out:cpu06.lib cpu\i86\*.o
+lib /out:cpu07.lib cpu\konami\*.o
+lib /out:cpu08.lib cpu\m6502\*.o
+lib /out:cpu09.lib cpu\m6800\*.o
+lib /out:cpu10.lib cpu/m68000/m68kops.og cpu/m68000/m68kopac.og cpu/m68000/m68kopdm.og cpu/m68000/m68kopnz.og cpu/m68000/m68kcpu.o cpu/m68000/m68kmame.o
+lib /out:cpu11.lib cpu\m6805\*.o
+lib /out:cpu12.lib cpu\m6809\*.o
+lib /out:cpu13.lib cpu\nec\*.o
+lib /out:cpu14.lib cpu\pdp1\*.o
+lib /out:cpu15.lib cpu\s2650\*.o
+lib /out:cpu16.lib cpu\t11\*.o
+lib /out:cpu17.lib cpu\tms32010\*.o
+lib /out:cpu18.lib cpu\tms34010\*.o
+lib /out:cpu19.lib cpu\tms9900\*.o
+lib /out:cpu20.lib cpu\z80\*.o
+lib /out:cpu21.lib cpu\z8000\*.o
+lib /out:drivers.lib drivers\*.o
+lib /out:machine.lib machine\*.o
+lib /out:sndhrdw.lib sndhrdw\*.o
+lib /out:sound.lib sound\*.o
+lib /out:vidhrdw.lib vidhrdw\*.o
+move  win32\Win32ui.o Win32ui.obj
+lib /out:win32.lib win32\*.o
+lib /out:obj.lib *.o

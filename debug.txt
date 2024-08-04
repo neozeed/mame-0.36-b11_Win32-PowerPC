@@ -1,0 +1,1 @@
+MAME32: DirectInput not initialized
